@@ -13,8 +13,11 @@ class InputHandler {
 
     function processInput($input) {
         $inputArray = explode(" ", $input);
-        if($inputArray[0] == "create_parking_lot") {
+        $command = $inputArray[0];
+        if($command === "create_parking_lot") {
             $this->slotsManager->createSlots($inputArray[1]);
+        } else if($command === "park") {
+            $this->slotsManager->parkCar($inputArray[1], $inputArray[2]);
         }
     }
 }
