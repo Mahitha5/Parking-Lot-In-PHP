@@ -36,6 +36,21 @@ class SlotsManager {
         }
     }
 
+    function status() {
+        print "Slot No.\tRegistration No.\tColour\n";
+        foreach ($this->slots as $index => $value) {
+            print $index + 1 . "\t";
+            if($value) {
+                print $value->getRegistrationNumber();
+            }
+            print "\t";
+            if($value) {
+                print $value->getColor();
+            }
+            print "\n";
+        }
+    }
+
     private function getIndexToPark() {
         foreach ($this->slots as $index => $value) {
             if($value === null) {

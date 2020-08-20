@@ -56,4 +56,13 @@ class SlotsManagerTest extends TestCase {
         $slotManager->leaveCar(1);
         $this->expectOutputString("Parking has not created yet\n");
     }
+
+    public function testParkingLotStatusIsPrinted() {
+        $slotManager = new SlotsManager();
+
+        $slotManager->createSlots(1);
+        $slotManager->parkCar("KA-1", "White");
+        $slotManager->status();
+        $this->expectOutputString("Created a parking lot with 1 slots\nAllocated slot number: 1\nSlot No.\tRegistration No.\tColour\n1\tKA-1\tWhite\n");
+    }
 }

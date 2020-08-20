@@ -28,4 +28,12 @@ class InputHandlerTest extends TestCase
         $slotManagerMock->expects($this->once())->method('leaveCar');
         $inputHandler->processInput("leave 2");
     }
+
+    public function testCallToStatusIfTheInputHasStatus() {
+        $slotManagerMock = $this->getMockBuilder('SlotsManager')->getMock('status');
+        $inputHandler = new InputHandler($slotManagerMock);
+
+        $slotManagerMock->expects($this->once())->method('status');
+        $inputHandler->processInput("status");
+    }
 }
