@@ -20,4 +20,12 @@ class InputHandlerTest extends TestCase
             ->method('parkCar');
         $inputHandler->processInput("park KA-1 White");
     }
+
+    public function testCallToLeaveCarIfTheInputHasLeave() {
+        $slotManagerMock = $this->getMockBuilder('SlotsManager')->getMock('leaveCar');
+        $inputHandler = new InputHandler($slotManagerMock);
+
+        $slotManagerMock->expects($this->once())->method('leaveCar');
+        $inputHandler->processInput("leave 2");
+    }
 }

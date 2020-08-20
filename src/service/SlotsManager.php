@@ -25,6 +25,17 @@ class SlotsManager {
         print $index + 1 . "\n";
     }
 
+    function leaveCar($index) {
+        if($this->slots === null) {
+            print "Parking has not created yet\n";
+        } else if($this->slots[$index - 1] !== null) {
+            unset($this->slots[$index - 1]);
+            print "Slot number {$index} is free\n";
+        } else {
+            print "Slot number {$index} is already empty\n";
+        }
+    }
+
     private function getIndexToPark() {
         foreach ($this->slots as $index => $value) {
             if($value === null) {

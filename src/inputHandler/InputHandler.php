@@ -18,6 +18,8 @@ class InputHandler {
             $this->slotsManager->createSlots($inputArray[1]);
         } else if($command === "park") {
             $this->slotsManager->parkCar($inputArray[1], $inputArray[2]);
+        } else if($command === "leave") {
+            $this->slotsManager->leaveCar($inputArray[1]);
         }
     }
 }
