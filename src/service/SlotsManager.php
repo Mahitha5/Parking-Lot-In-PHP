@@ -14,6 +14,10 @@ class SlotsManager {
     }
 
     function parkCar($registrationNum, $color) {
+        if($this->slots === null) {
+            print "Parking has not created yet\n";
+            return;
+        }
         $index = $this->getIndexToPark();
         if($index === null) {
             print "Sorry, parking lot is full\n";

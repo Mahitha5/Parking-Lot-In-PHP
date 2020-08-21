@@ -33,6 +33,13 @@ class SlotsManagerTest extends TestCase {
         $this->expectOutputString("Created a parking lot with 1 slots\nAllocated slot number: 1\nSorry, parking lot is full\n");
     }
 
+    public function testCanParkCardWithoutParkingLotHasCreated() {
+        $slotManager = new SlotsManager();
+
+        $slotManager->parkCar("KA-1", "Blue");
+        $this->expectOutputString("Parking has not created yet\n");
+    }
+
     public function testShouldLeaveCarFromTheGivenIndex() {
         $slotManager = new SlotsManager();
 
